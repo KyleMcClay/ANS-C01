@@ -1,10 +1,41 @@
 # AWS Certified Advanced Networking - Specialty (ANS-C01) Exam Guide 
+
 # Domain 1: Network Design
+
 ## Task Statement 1.1: Design a solution that incorporates edge network services to optimize user performance and traffic management for global architectures.
+
 ###  Knowledge of Design patterns for the usage of content distribution networks (for example, Amazon CloudFront)
+
 #### What is a [design pattern](https://en.wikipedia.org/wiki/Software_design_pattern)?
 a design pattern is a general, reusable solution to a commonly occurring problem within a given context in software design. it is a description or template for how to solve a problem that can be used in many different situations. Design patterns are formalized best practices that the programmer can use to solve common problems when designing an application or system.
-#### What is a content distribution network (CDN)?
+
+#### What is a content distribution network ([CDN](https://en.wikipedia.org/wiki/Content_delivery_network))?
+![CDN](https://upload.wikimedia.org/wikipedia/commons/f/f9/NCDN_-_CDN.png) (Left) Single server distribution (Right) CDN scheme of distribution
+
+A content delivery network, or content distribution network (CDN), is a geographically distributed network of proxy servers and their data centers. The goal is to provide high availability and performance by distributing the service spatially relative to end users. CDN is an umbrella term spanning different types of content delivery services: video streaming, software downloads, web and mobile content acceleration, licensed/managed CDN, transparent caching, and services to measure CDN performance, load balancing, Multi CDN switching and analytics and cloud intelligence.
+
+#### What is Amazon [CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)?
+Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, such as .html, .css, .js, and image files, to your users. CloudFront delivers your content through a worldwide network of data centers called edge locations. When a user requests content that you're serving with CloudFront, the request is routed to the edge location that provides the lowest latency (time delay), so that content is delivered with the best possible performance.
+
+#### Use cases for [Cloudfront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/IntroductionUseCases.html)
+
+#### Accelerate static website content delivery
+
+![S3 + Orgin](https://d2908q01vomqb2.cloudfront.net/5b384ce32d8cdef02bc3a139d4cac0a22bb029e8/2020/06/07/S3-Blog-3-1024x576.jpg)
+CloudFront can speed up the delivery of your static content (for example, images, style sheets, JavaScript, and so on) to viewers across the globe. By using CloudFront, you can take advantage of the AWS backbone network and CloudFront edge servers to give your viewers a fast, safe, and reliable experience when they visit your website.
+
+A simple approach for storing and delivering static content is to use an Amazon S3 bucket. Using S3 together with CloudFront has a number of advantages, including the option to use Origin Access Identity (OAI) to easily restrict access to your S3 content.
+![S3 + origin](https://d2908q01vomqb2.cloudfront.net/5b384ce32d8cdef02bc3a139d4cac0a22bb029e8/2018/06/27/4-v-2.png)
+
+### Serve video on demand or live streaming video
+To deliver video on demand (VOD) streaming with CloudFront, use the following services:
+1. Amazon S3 to store the content in its original format and to store the transcoded video.
+2. An encoder (such as AWS Elemental MediaConvert) to transcode the video into streaming formats.
+3. CloudFront to deliver the transcoded video to viewers. 
+
+For broadcasting a live stream, you can cache media fragments at the edge, so that multiple requests for the manifest file that delivers the fragments in the right order can be combined, to reduce the load on your origin server.
+
+For more information about how to deliver streaming content with CloudFront, see Video on demand and live streaming video with CloudFront.
 ###  Knowledge of Design patterns for global traffic management (for example, AWS Global Accelerator)
 ###  Knowledge of Integration patterns for content distribution networks and global traffic management with other services (for example, Elastic Load Balancing, Amazon API Gateway)
 ### Skills in Evaluating requirements of global inbound and outbound traffic from the internet to design an appropriate content distribution solution
