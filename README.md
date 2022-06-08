@@ -10,7 +10,8 @@
 a design pattern is a general, reusable solution to a commonly occurring problem within a given context in software design. it is a description or template for how to solve a problem that can be used in many different situations. Design patterns are formalized best practices that the programmer can use to solve common problems when designing an application or system.
 
 #### What is a content distribution network ([CDN](https://en.wikipedia.org/wiki/Content_delivery_network))?
-![CDN](https://upload.wikimedia.org/wikipedia/commons/f/f9/NCDN_-_CDN.png) (Left) Single server distribution (Right) CDN scheme of distribution
+![CDN](https://upload.wikimedia.org/wikipedia/commons/f/f9/NCDN_-_CDN.png) 
+*(Left) Single server distribution (Right) CDN scheme of distribution*
 
 A content delivery network, or content distribution network (CDN), is a geographically distributed network of proxy servers and their data centers. The goal is to provide high availability and performance by distributing the service spatially relative to end users. CDN is an umbrella term spanning different types of content delivery services: video streaming, software downloads, web and mobile content acceleration, licensed/managed CDN, transparent caching, and services to measure CDN performance, load balancing, Multi CDN switching and analytics and cloud intelligence.
 
@@ -22,10 +23,15 @@ Amazon CloudFront is a web service that speeds up distribution of your static an
 #### Accelerate static website content delivery
 
 ![S3 + Orgin](https://d2908q01vomqb2.cloudfront.net/5b384ce32d8cdef02bc3a139d4cac0a22bb029e8/2020/06/07/S3-Blog-3-1024x576.jpg)
+*Overview of cloudfront*
+
 CloudFront can speed up the delivery of your static content (for example, images, style sheets, JavaScript, and so on) to viewers across the globe. By using CloudFront, you can take advantage of the AWS backbone network and CloudFront edge servers to give your viewers a fast, safe, and reliable experience when they visit your website.
 
 A simple approach for storing and delivering static content is to use an Amazon S3 bucket. Using S3 together with CloudFront has a number of advantages, including the option to use Origin Access Identity (OAI) to easily restrict access to your S3 content.
+
 ![S3 + origin](https://d2908q01vomqb2.cloudfront.net/5b384ce32d8cdef02bc3a139d4cac0a22bb029e8/2018/06/27/4-v-2.png)
+
+*Cloudfront traffic flow*
 
 #### Serve video on demand or live streaming video
 To deliver video on demand (VOD) streaming with CloudFront, use the following services:
@@ -48,6 +54,24 @@ To serve private content using CloudFront, you do the following:
      - use custom logic via Lambda@Edge
 
 ###  Knowledge of Design patterns for global traffic management (for example, AWS Global Accelerator)
+#### What is [traffic management](https://en.wikipedia.org/wiki/Network_traffic_control)?
+network traffic control is the process of managing, controlling or reducing the network traffic, particularly Internet bandwidth, e.g. by the network scheduler.[1] It is used by network administrators, to reduce congestion, latency and packet loss. This is part of bandwidth management. In order to use these tools effectively, it is necessary to measure the network traffic to determine the causes of network congestion and attack those problems specifically.
+
+#### What is the Global Accelerator?
+
+AWS Global Accelerator combines advanced networking features with the dedicated AWS Global Network to improve your application network performance by up to 60%. TCP connections are terminated at the AWS Edge location closest to your users, instead of at your endpoint, accelerating data transfers globally.
+
+![Traditional network hops](https://d1.awsstatic.com/r2018/b/ubiquity/global-accelerator-before.46be83fdc7c630457bba963c7dc928cb676d9046.png)
+*Traditional Network via internet*
+
+![Global accelerator](https://d1.awsstatic.com/r2018/b/ubiquity/global-accelerator-after.2e404ac7f998e501219f2614bc048bb9c01f46d4.png)
+*AWS Network via Global Accelerator*
+
+#### Use cases for [Global Accelerator](https://aws.amazon.com/global-accelerator/)
+
+
+
+
 ###  Knowledge of Integration patterns for content distribution networks and global traffic management with other services (for example, Elastic Load Balancing, Amazon API Gateway)
 ### Skills in Evaluating requirements of global inbound and outbound traffic from the internet to design an appropriate content distribution solution
 ## Task Statement 1.2: Design DNS solutions that meet public, private, and hybrid requirements.
