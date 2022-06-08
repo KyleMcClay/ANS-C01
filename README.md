@@ -27,7 +27,7 @@ CloudFront can speed up the delivery of your static content (for example, images
 A simple approach for storing and delivering static content is to use an Amazon S3 bucket. Using S3 together with CloudFront has a number of advantages, including the option to use Origin Access Identity (OAI) to easily restrict access to your S3 content.
 ![S3 + origin](https://d2908q01vomqb2.cloudfront.net/5b384ce32d8cdef02bc3a139d4cac0a22bb029e8/2018/06/27/4-v-2.png)
 
-### Serve video on demand or live streaming video
+#### Serve video on demand or live streaming video
 To deliver video on demand (VOD) streaming with CloudFront, use the following services:
 1. Amazon S3 to store the content in its original format and to store the transcoded video.
 2. An encoder (such as AWS Elemental MediaConvert) to transcode the video into streaming formats.
@@ -35,7 +35,18 @@ To deliver video on demand (VOD) streaming with CloudFront, use the following se
 
 For broadcasting a live stream, you can cache media fragments at the edge, so that multiple requests for the manifest file that delivers the fragments in the right order can be combined, to reduce the load on your origin server.
 
-For more information about how to deliver streaming content with CloudFront, see Video on demand and live streaming video with CloudFront.
+#### Serving Private Content Using Amazon CloudFront & AWS Lambda@Edge
+
+To serve private content using CloudFront, you do the following:
+1. Require that your users (viewers) access content using signed URLs or signed cookies.
+2. Restrict access to your origin so that it’s only available from CloudFront’s origin-facing servers.
+   - For an Amazon S3 origin
+     - use an origin access identity (OAI).
+   - For a custom origin
+     - use the CloudFront managed prefix list
+     - Use a custom HTTP header to restrict access to only requests from CloudFront. 
+     - use custom logic via Lambda@Edge
+
 ###  Knowledge of Design patterns for global traffic management (for example, AWS Global Accelerator)
 ###  Knowledge of Integration patterns for content distribution networks and global traffic management with other services (for example, Elastic Load Balancing, Amazon API Gateway)
 ### Skills in Evaluating requirements of global inbound and outbound traffic from the internet to design an appropriate content distribution solution
