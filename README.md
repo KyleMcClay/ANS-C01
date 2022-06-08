@@ -78,23 +78,25 @@ By using AWS Global Accelerator, you can:
 
 CloudFront improves performance for both cacheable content (such as images and videos) and dynamic content (such as API acceleration and dynamic site delivery). Global Accelerator improves performance for a wide range of applications over TCP or UDP by proxying packets at the edge to applications running in one or more AWS Regions. Global Accelerator is a good fit for non-HTTP use cases, such as gaming (UDP), IoT (MQTT), or Voice over IP, as well as for HTTP use cases that specifically require static IP addresses or deterministic, fast regional failover. 
 
-Cloudfront 
+#### Cloudfront 
 
 - Amazon CloudFront provides a simple API that lets you:
-- - Distribute content with low latency and high data transfer rates by serving requests using a network of edge locations around the world.
+  - Distribute content with low latency and high data transfer rates by serving requests using a network of edge locations around the world.
 - integrates with Amazon S3 for static objects, Amazon EC2 for dynamic content, and custom origins for third-party content, Elastic Load Balancing as origin servers, Amazon Route 53, WAF
 - ACM manage certificate: you can now provision SSL/TLS certificates and associate them with CloudFront distributions within minutes. Simply provision a certificate using the new AWS Certificate Manager (ACM) and deploy it to your CloudFront distribution with a couple of clicks, and let ACM manage certificate renewals for you. ACM allows you to provision, deploy, and manage the certificate with no additional charges.
 - log files are sent to s3 
 - running code in response to CloudFront events (CloudFront Functions and Lambda@Edge)
-- - CloudFront Functions was purpose-built for lightweight, high scale, and latency sensitive request/response transformations and manipulations. 
-- - Use Lambda@Edge for computationally intensive operations.
+  - CloudFront Functions was purpose-built for lightweight, high scale, and latency sensitive request/response transformations and manipulations. 
+  - Use Lambda@Edge for computationally intensive operations.
 
-Global Accelerator
+#### Global Accelerator
 
--ELB provides load balancing within one Region, AWS Global Accelerator provides traffic management across multiple Regions. A regional ELB load balancer is an ideal target for AWS Global Accelerator. 
-- 
+- ELB provides load balancing within one Region, AWS Global Accelerator provides traffic management across multiple Regions. A regional ELB load balancer is an ideal target for AWS Global Accelerator.  
 
 ### Skills in Evaluating requirements of global inbound and outbound traffic from the internet to design an appropriate content distribution solution
+
+#### LAB
+
 ## Task Statement 1.2: Design DNS solutions that meet public, private, and hybrid requirements.
 Knowledge of:
 • DNS protocol (for example, DNS records, timers, DNSSEC, DNS delegation, zones)
