@@ -61,18 +61,39 @@ network traffic control is the process of managing, controlling or reducing the 
 
 AWS Global Accelerator combines advanced networking features with the dedicated AWS Global Network to improve your application network performance by up to 60%. TCP connections are terminated at the AWS Edge location closest to your users, instead of at your endpoint, accelerating data transfers globally.
 
+By using AWS Global Accelerator, you can:
+
+- Associate the static IP addresses provided by AWS Global Accelerator to regional AWS resources or endpoints, such as Network Load Balancers, Application Load Balancers, EC2 Instances, and Elastic IP addresses. 
+- The IP addresses are anycast from AWS edge locations so they provide onboarding to the AWS global network close to your users. Easily move endpoints between Availability Zones or AWS Regions without needing to update your DNS configuration or change client-facing applications. Dial traffic up or down for a specific AWS Region by configuring a traffic dial percentage for your endpoint groups. 
+- This is especially useful for testing performance and releasing updates. 
+- Control the proportion of traffic directed to each endpoint within an endpoint group by assigning weights across the endpoints.
+
 ![Traditional network hops](https://d1.awsstatic.com/r2018/b/ubiquity/global-accelerator-before.46be83fdc7c630457bba963c7dc928cb676d9046.png)
 *Traditional Network via internet*
 
 ![Global accelerator](https://d1.awsstatic.com/r2018/b/ubiquity/global-accelerator-after.2e404ac7f998e501219f2614bc048bb9c01f46d4.png)
 *AWS Network via Global Accelerator*
 
-#### Use cases for [Global Accelerator](https://aws.amazon.com/global-accelerator/)
-
-
-
-
 ###  Knowledge of Integration patterns for content distribution networks and global traffic management with other services (for example, Elastic Load Balancing, Amazon API Gateway)
+
+CloudFront improves performance for both cacheable content (such as images and videos) and dynamic content (such as API acceleration and dynamic site delivery). Global Accelerator improves performance for a wide range of applications over TCP or UDP by proxying packets at the edge to applications running in one or more AWS Regions. Global Accelerator is a good fit for non-HTTP use cases, such as gaming (UDP), IoT (MQTT), or Voice over IP, as well as for HTTP use cases that specifically require static IP addresses or deterministic, fast regional failover. 
+
+Cloudfront 
+
+- Amazon CloudFront provides a simple API that lets you:
+- - Distribute content with low latency and high data transfer rates by serving requests using a network of edge locations around the world.
+- integrates with Amazon S3 for static objects, Amazon EC2 for dynamic content, and custom origins for third-party content, Elastic Load Balancing as origin servers, Amazon Route 53, WAF
+- ACM manage certificate: you can now provision SSL/TLS certificates and associate them with CloudFront distributions within minutes. Simply provision a certificate using the new AWS Certificate Manager (ACM) and deploy it to your CloudFront distribution with a couple of clicks, and let ACM manage certificate renewals for you. ACM allows you to provision, deploy, and manage the certificate with no additional charges.
+- log files are sent to s3 
+- running code in response to CloudFront events (CloudFront Functions and Lambda@Edge)
+- - CloudFront Functions was purpose-built for lightweight, high scale, and latency sensitive request/response transformations and manipulations. 
+- - Use Lambda@Edge for computationally intensive operations.
+
+Global Accelerator
+
+-ELB provides load balancing within one Region, AWS Global Accelerator provides traffic management across multiple Regions. A regional ELB load balancer is an ideal target for AWS Global Accelerator. 
+- 
+
 ### Skills in Evaluating requirements of global inbound and outbound traffic from the internet to design an appropriate content distribution solution
 ## Task Statement 1.2: Design DNS solutions that meet public, private, and hybrid requirements.
 Knowledge of:
