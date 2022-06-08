@@ -57,7 +57,7 @@ To serve private content using CloudFront, you do the following:
 #### What is [traffic management](https://en.wikipedia.org/wiki/Network_traffic_control)?
 network traffic control is the process of managing, controlling or reducing the network traffic, particularly Internet bandwidth, e.g. by the network scheduler.[1] It is used by network administrators, to reduce congestion, latency and packet loss. This is part of bandwidth management. In order to use these tools effectively, it is necessary to measure the network traffic to determine the causes of network congestion and attack those problems specifically.
 
-#### What is the Global Accelerator?
+#### What is the [Global Accelerator](https://aws.amazon.com/global-accelerator/)?
 
 AWS Global Accelerator combines advanced networking features with the dedicated AWS Global Network to improve your application network performance by up to 60%. TCP connections are terminated at the AWS Edge location closest to your users, instead of at your endpoint, accelerating data transfers globally.
 
