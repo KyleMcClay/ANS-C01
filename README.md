@@ -98,19 +98,82 @@ CloudFront improves performance for both cacheable content (such as images and v
 #### LAB
 
 ## Task Statement 1.2: Design DNS solutions that meet public, private, and hybrid requirements.
-Knowledge of:
-• DNS protocol (for example, DNS records, timers, DNSSEC, DNS delegation, zones)
-• DNS logging and monitoring
-• Amazon Route 53 features (for example, alias records, traffic policies, resolvers, health checks)
-• Integration of Route 53 with other AWS networking services (for example, Amazon VPC)
-• Integration of Route 53 with hybrid, multi-account, and multi-Region options
-• Domain registration
-Skills in:
-• Using Route 53 public hosted zones
-• Using Route 53 private hosted zones
-• Using Route 53 Resolver endpoints in hybrid and AWS architectures
-• Using Route 53 for global traffic management
-• Creating and managing domain registrations
+
+### DNS protocol (for example, DNS records, timers, DNSSEC, DNS delegation, zones)
+
+#### What is the [DNS](https://aws.amazon.com/route53/faqs/)?
+DNS is a globally distributed service that translates human readable names like www.example.com into the numeric IP addresses like 192.0.2.1 that computers use to connect to each other. 
+
+#### What is a DNS [Record](https://aws.amazon.com/route53/faqs/)?
+With Amazon Route 53, you can create and manage your public DNS records. Like a phone book, Route 53 lets you manage the IP addresses listed for your domain names in the Internet’s DNS phone book. Route 53 also answers requests to translate specific domain names like into their corresponding IP addresses like 192.0.2.1. You can use Route 53 to create DNS records for a new domain or transfer DNS records for an existing domain. 
+
+#### What is a [DNSSEC](https://www.icann.org/resources/pages/dnssec-what-is-it-why-important-2019-03-05-en) (DNS Security Extensions)?
+DNSSEC strengthens authentication in DNS using digital signatures based on public key cryptography. 
+- Data origin authentication allows a resolver to cryptographically verify that the data it received actually came from the zone where it believes the data originated.
+- Data integrity protection allows the resolver to know that the data hasn't been modified in transit since it was originally signed by the zone owner with the zone's private key.
+
+#### What are [Delgations](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/reviewing-dns-concepts)?
+For a DNS server to answer queries about any name, it must have a direct or indirect path to every zone in the namespace. These paths are created by means of delegation. A delegation is a record in a parent zone that lists a name server that is authoritative for the zone in the next level of the hierarchy. 
+
+#### What is a [zone](https://en.wikipedia.org/wiki/DNS_zone)?
+
+![Zone](https://upload.wikimedia.org/wikipedia/commons/6/6a/DNS_Zone.png)
+
+A collection of domains
+
+A DNS zone is implemented in the configuration system of a domain name server. Historically, it is defined in the zone file, an operating system text file that starts with the special DNS record type Start of Authority (SOA) and contains all records for the resources described within the zone.
+
+### DNS logging and [monitoring](https://aws.amazon.com/route53/faqs/)
+You can configure Amazon Route 53 to log information about the queries that Amazon Route 53 receives including date-time stamp, domain name, query type, location etc.  When you configure query logging, Amazon Route 53 starts to send logs to CloudWatch Logs. You use CloudWatch Logs tools to access the query logs.
+
+You can log your DNS Firewall activity to an Amazon S3 bucket or Amazon CloudWatch log groups for further analysis and investigation. You can also use Amazon Kinesis Firehose to send your logs to a third-party provider.
+
+### Amazon Route 53 features (for example, alias records, traffic policies, resolvers, health checks)
+
+#### Which DNS record types does Amazon Route 53 support?
+- A (address record)
+- AAAA (IPv6 address record)
+- CNAME (canonical name record)
+- CAA (certification authority authorization)
+- MX (mail exchange record)
+- NAPTR (name authority pointer record)
+- NS (name server record)
+- PTR (pointer record)
+- SOA (start of authority record)
+- SPF (sender policy framework)
+- SRV (service locator)
+- TXT (text record)
+- *alias records*
+  - Amazon Route 53-specific extension to DNS 
+  - You can create alias records to route traffic to selected AWS resources, including Amazon Elastic Load Balancing load balancers, Amazon CloudFront distributions, AWS Elastic Beanstalk environments, API Gateways, VPC interface endpoints, and Amazon S3 buckets that are configured as websites. 
+  - Alias record typically have a type of A or AAAA, but they work like a CNAME record. Using an alias record, you can map your record name (example.com) to the DNS name for an AWS resource (elb1234.elb.amazonaws.com). Resolvers see the A or AAAA record and the IP address of the AWS resource.
+
+#### What is Amazon Route 53 Traffic Flow?
+
+Amazon Route 53 Traffic Flow is an easy-to-use and cost-effective global traffic management service. With Amazon Route 53 Traffic Flow, you can improve the performance and availability of your application for your end users by running multiple endpoints around the world, 
+using Amazon Route 53 Traffic Flow to connect your users to the best endpoint based on 
+- latency
+- geography
+- endpoint health
+- Load
+- Geoproximity
+- Geography 
+Customers can customize these templates or build policies from scratch using a simple visual policy builder in the AWS Management Console.
+
+### Integration of Route 53 with other AWS networking services (for example, Amazon VPC)
+### Integration of Route 53 with hybrid, multi-account, and multi-Region options
+### Domain registration
+
+Skills in: *LAB*
+### Using Route 53 public hosted zones
+Public hosted zones contain records that specify how you want to route traffic on the internet.
+
+### Using Route 53 private hosted zones
+Private hosted zones contain records that specify how you want to route traffic in a VPC.
+
+### Using Route 53 Resolver endpoints in hybrid and AWS architectures
+### Using Route 53 for global traffic management
+### Creating and managing domain registrations
 ## Task Statement 1.3: Design solutions that integrate load balancing to meet high availability, scalability,
 and security requirements.
 Knowledge of:
