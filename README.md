@@ -130,27 +130,22 @@ You can log your DNS Firewall activity to an Amazon S3 bucket or Amazon CloudWat
 
 ### Amazon Route 53 features (for example, alias records, traffic policies, resolvers, health checks)
 
-#### Which DNS record types does Amazon Route 53 support?
-- A (address record)
-- AAAA (IPv6 address record)
-- CNAME (canonical name record)
-- CAA (certification authority authorization)
-- MX (mail exchange record)
-- NAPTR (name authority pointer record)
-- NS (name server record)
-- PTR (pointer record)
-- SOA (start of authority record)
-- SPF (sender policy framework)
-- SRV (service locator)
-- TXT (text record)
-- *alias records*
+#### Which is an alias records
   - Amazon Route 53-specific extension to DNS 
   - You can create alias records to route traffic to selected AWS resources, including Amazon Elastic Load Balancing load balancers, Amazon CloudFront distributions, AWS Elastic Beanstalk environments, API Gateways, VPC interface endpoints, and Amazon S3 buckets that are configured as websites. 
   - Alias record typically have a type of A or AAAA, but they work like a CNAME record. Using an alias record, you can map your record name (example.com) to the DNS name for an AWS resource (elb1234.elb.amazonaws.com). Resolvers see the A or AAAA record and the IP address of the AWS resource.
 
+#### What is a [resolver](https://www.computerhope.com/jargon/d/dns-resolver.htm)?
+
+A DNS resolver, also known as a resolver, is a server on the Internet that converts domain names into IP addresses.
+
+#### What is a Route 53 AWS [resolver](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html)?
+
+When you create a VPC using Amazon VPC, Route 53 Resolver automatically uses a Resolver on the VPC to answer DNS queries for local Amazon VPC domain names for EC2 instances and records in private hosted zones (acme.example.com). For all other domain names, Resolver performs recursive lookups against public name servers.
+
 #### What is Amazon Route 53 Traffic Flow?
 
-Amazon Route 53 Traffic Flow is an easy-to-use and cost-effective global traffic management service. With Amazon Route 53 Traffic Flow, you can improve the performance and availability of your application for your end users by running multiple endpoints around the world, 
+Amazon Route 53 Traffic Flow is a global traffic management service. With Amazon Route 53 Traffic Flow, you can improve the performance and availability of your application for your end users by running multiple endpoints around the world, 
 using Amazon Route 53 Traffic Flow to connect your users to the best endpoint based on 
 - latency
 - geography
@@ -160,8 +155,23 @@ using Amazon Route 53 Traffic Flow to connect your users to the best endpoint ba
 - Geography 
 Customers can customize these templates or build policies from scratch using a simple visual policy builder in the AWS Management Console.
 
+#### What is an Amazon Route 53 health checks?
+
+Amazon Route 53 health checks monitor the health and performance of your web applications, web servers, and other resources. Each health check that you create can monitor one of the following:
+- The health of a specified resource, such as a web server.
+- The status of other health checks.
+- The status of an Amazon CloudWatch alarm.
+- with Amazon Route 53 Application Recovery Controller
+  - routing control health checks with DNS failover records to manage traffic failover for your application
+
 ### Integration of Route 53 with other AWS networking services (for example, Amazon VPC)
+
+Amazon Route 53 is designed to work well with other AWS features and offerings. You can use Amazon Route 53 to map domain names to your Amazon EC2 instances, Amazon S3 buckets, Amazon CloudFront distributions, and other AWS resources. By using the AWS Identity and Access Management (IAM) service with Amazon Route 53, you get fine grained control over who can update your DNS data. You can use Amazon Route 53 to map your zone apex (example.com versus www.example.com) to your Elastic Load Balancing instance, Amazon CloudFront distribution, AWS Elastic Beanstalk environment, API Gateway, VPC endpoint, or Amazon S3 website bucket using a feature called Alias record.
+
 ### Integration of Route 53 with hybrid, multi-account, and multi-Region options
+
+
+
 ### Domain registration
 
 Skills in: *LAB*
