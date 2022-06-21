@@ -168,8 +168,13 @@ Amazon Route 53 health checks monitor the health and performance of your web app
 
 Amazon Route 53 is designed to work well with other AWS features and offerings. You can use Amazon Route 53 to map domain names to your Amazon EC2 instances, Amazon S3 buckets, Amazon CloudFront distributions, and other AWS resources. By using the AWS Identity and Access Management (IAM) service with Amazon Route 53, you get fine grained control over who can update your DNS data. You can use Amazon Route 53 to map your zone apex (example.com versus www.example.com) to your Elastic Load Balancing instance, Amazon CloudFront distribution, AWS Elastic Beanstalk environment, API Gateway, VPC endpoint, or Amazon S3 website bucket using a feature called Alias record.
 
-### Integration of Route 53 with hybrid, multi-account, and multi-Region options
+### Integration of [Route 53](https://aws.amazon.com/blogs/architecture/using-route-53-private-hosted-zones-for-cross-account-multi-region-architectures/) with hybrid, multi-account, and multi-Region options
 
+![Architecture Diagram](https://d2908q01vomqb2.cloudfront.net/fc074d501302eb2b93e2554793fcaf50b3bf7291/2021/01/22/DNS_Blog_Diagv2.jpg)
+
+Many AWS customers have internal business applications spread over multiple AWS accounts and on-premises to support different business units. In such environments, you may find a consistent view of DNS records and domain names between on-premises and different AWS accounts useful. Route 53 Private Hosted Zones (PHZs) and Resolver endpoints on AWS create an architecture best practice for centralized DNS in hybrid cloud environment. Your business units can use flexibility and autonomy to manage the hosted zones for their applications and support multi-region application environments for disaster recovery (DR) purposes
+
+Hybrid cloud environments can utilize the features of Route 53 Private Hosted Zones such as overlapping namespaces and the ability to perform cross-account and multi-region VPC association. This creates a unified DNS view for your application environments. The architecture allows for scalability and high availability for business applications.
 
 
 ### Domain registration
@@ -182,6 +187,8 @@ Public hosted zones contain records that specify how you want to route traffic o
 Private hosted zones contain records that specify how you want to route traffic in a VPC.
 
 ### Using Route 53 Resolver endpoints in hybrid and AWS architectures
+
+
 ### Using Route 53 for global traffic management
 ### Creating and managing domain registrations
 ## Task Statement 1.3: Design solutions that integrate load balancing to meet high availability, scalability,
